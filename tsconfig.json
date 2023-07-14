@@ -1,6 +1,15 @@
 {
   "extends": "expo/tsconfig.base",
+  "include": ["src/**/*"],
+  "exclude": [
+    "node_modules/**/*"
+  ],
   "compilerOptions": {
-    "strict": true
+    "lib": ["DOM", "ESNext"],
+    "moduleResolution": "Node",
+    "noImplicitAny": true,
+    "noUncheckedIndexedAccess": true,
+    "strict": true,
+    "target": "ES6",
   }
 }
