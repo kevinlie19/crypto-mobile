@@ -1,13 +1,21 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { useFonts } from 'expo-font';
+import { StyleSheet } from 'react-native';
+
+import AppNavigator from './navigation/AppNavigator';
+import { LoadingIndicator } from './core-ui/LoadingIndicator';
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style='auto' />
-    </View>
-  );
+  let [fontsLoaded] = useFonts({
+    'Inter-Regular': require('../assets/fonts/Inter-Regular.ttf'),
+    'Inter-SemiBold': require('../assets/fonts/Inter-SemiBold.ttf'),
+    'Inter-Bold': require('../assets/fonts/Inter-Bold.ttf'),
+  });
+
+  if (!fontsLoaded) {
+    return <LoadingIndicator />;
+  }
+
+  return <AppNavigator />;
 }
 
 const styles = StyleSheet.create({
