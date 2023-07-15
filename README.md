@@ -42,3 +42,6 @@ To test the project's available tests using [Jest](https://jestjs.io/).
 ## Screenshots
 
 This are the screenshots of the app:
+
+- Market Screen (iOS - Simulator)
+<img width="399" alt="Screenshot 2023-07-15 at 18 03 01" src="https://github.com/kevinlie19/crypto-mobile/assets/48467219/e631d003-9a91-4751-bc0f-5cdead129a9a">
