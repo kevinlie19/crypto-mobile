@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo, useState } from 'react';
 import { FlatList, SafeAreaView, StyleSheet, View } from 'react-native';
 import AntDesignIcon from 'react-native-vector-icons/AntDesign';
 import FeatherIcon from 'react-native-vector-icons/Feather';
@@ -15,7 +15,23 @@ export type CombinedCurrencyData = SupportedCryptoCurrencies & {
 };
 
 export function MarketScreen() {
-  // Cannot bypass cors error on react native, so the data is all dummy from real pintu public api data
+  // NOTE: cannot bypass cors error on react native, so the data is all dummy from real pintu public api data
+
+  const [searchInput, setSearchInput] = useState('');
+
+  const filteredData = useMemo(() => {
+    return MOCK_CURRENCY_DATA.filter(
+      (data) =>
+        data.name.toLowerCase().includes(searchInput.toLowerCase()) ||
+        data.currencySymbol.toLowerCase().includes(searchInput.toLowerCase()),
+    );
+  }, [searchInput]);
+
+  const onSearchCurrency = (newSearchInput: string) => {
+    // Another approach is using debounce
+    setSearchInput(newSearchInput);
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
@@ -29,6 +45,8 @@ export function MarketScreen() {
               size={20}
             />
           }
+          value={searchInput}
+          onChangeText={onSearchCurrency}
         />
         <View style={styles.filterContainer}>
           <AntDesignIcon name="filter" size={20} />
@@ -39,7 +57,7 @@ export function MarketScreen() {
         <ScrollingSorts />
       </View>
       <FlatList
-        data={MOCK_CURRENCY_DATA}
+        data={filteredData}
         keyExtractor={(item) => item.currencySymbol}
         renderItem={({ item }) => {
           return <CurrencyList data={item} />;
