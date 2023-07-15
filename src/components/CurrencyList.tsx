@@ -43,7 +43,7 @@ export const CurrencyList = (props: Props) => {
               size={36}
               style={{ marginVertical: -8 }}
             />
-            <Text color={isMinus ? 'down' : 'up'}>
+            <Text variant="semiBold" color={isMinus ? 'down' : 'up'}>
               {formattedPercentage(
                 numberToPercentage({ num: Number(data.price.day) }),
               )}
