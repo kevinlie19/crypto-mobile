@@ -9,6 +9,7 @@
     "moduleResolution": "Node",
     "noImplicitAny": true,
     "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": true,
     "strict": true,
     "target": "ES6",
   }
