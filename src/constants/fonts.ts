@@ -10,7 +10,7 @@ const FONT_SIZES = {
 
 const FONT_VARIANTS = {
   regular: { fontFamily: 'Inter-Regular', fontWeight: '400' } as TextStyle,
-  semibold: { fontFamily: 'Inter-SemiBold', fontWeight: '600' } as TextStyle,
+  semiBold: { fontFamily: 'Inter-SemiBold', fontWeight: '600' } as TextStyle,
   bold: { fontFamily: 'Inter-Bold', fontWeight: '700' } as TextStyle,
 };
 
@@ -20,12 +20,20 @@ const TEXT_VARIANTS = {
     fontSize: FONT_SIZES.xl,
   } as TextStyle,
   title: {
-    ...FONT_VARIANTS.semibold,
-    fontSize: FONT_SIZES.s,
+    ...FONT_VARIANTS.semiBold,
+    fontSize: FONT_SIZES.m,
   } as TextStyle,
   subtitle: {
     ...FONT_VARIANTS.regular,
-    fontSize: FONT_SIZES.xs,
+    fontSize: FONT_SIZES.s,
+  } as TextStyle,
+  bold: {
+    ...FONT_VARIANTS.bold,
+    fontSize: FONT_SIZES.s,
+  } as TextStyle,
+  semiBold: {
+    ...FONT_VARIANTS.semiBold,
+    fontSize: FONT_SIZES.s,
   } as TextStyle,
   regular: {
     ...FONT_VARIANTS.regular,
