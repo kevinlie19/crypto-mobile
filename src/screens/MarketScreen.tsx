@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from 'react';
-import { FlatList, SafeAreaView, StyleSheet, View } from 'react-native';
+import { SafeAreaView, StyleSheet, View } from 'react-native';
+import { FlashList } from '@shopify/flash-list';
 import AntDesignIcon from 'react-native-vector-icons/AntDesign';
 import FeatherIcon from 'react-native-vector-icons/Feather';
 
@@ -56,12 +57,12 @@ export function MarketScreen() {
       <View>
         <ScrollingSorts />
       </View>
-      <FlatList
+      <FlashList
         data={filteredData}
-        keyExtractor={(item) => item.currencySymbol}
         renderItem={({ item }) => {
           return <CurrencyList data={item} />;
         }}
+        estimatedItemSize={20}
       />
     </SafeAreaView>
   );
